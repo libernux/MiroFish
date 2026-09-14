@@ -9,8 +9,13 @@ import warnings
 # 需要在所有其他导入之前设置
 warnings.filterwarnings("ignore", message=".*resource_tracker.*")
 
-from flask import Flask, request
+from flask import Flask, request, send_from_directory, abort
 from flask_cors import CORS
+
+# 生产环境下由后端直接托管构建后的前端（frontend/dist）
+FRONTEND_DIST = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), '..', '..', 'frontend', 'dist')
+)
 
 from .config import Config
 from .utils.logger import setup_logger, get_logger
@@ -72,7 +77,27 @@ def create_app(config_class=Config):
     @app.route('/health')
     def health():
         return {'status': 'ok', 'service': 'MiroFish Backend'}
-    
+
+    # 托管构建后的前端 SPA（仅当 dist 存在时）。
+    # 说明：/api/* 与 /health 已由上方更具体的路由处理，此处的通配路由
+    # 优先级更低，因此不会拦截它们；对未知路径回退到 index.html 以支持
+    # Vue Router 的 history 模式。
+    if os.path.isdir(FRONTEND_DIST):
+        @app.route('/', defaults={'path': ''})
+        @app.route('/<path:path>')
+        def serve_spa(path):
+            if path.startswith('api/'):
+                abort(404)
+            candidate = os.path.join(FRONTEND_DIST, path)
+            if path and os.path.isfile(candidate):
+                return send_from_directory(FRONTEND_DIST, path)
+            return send_from_directory(FRONTEND_DIST, 'index.html')
+
+        if should_log_startup:
+            logger.info(f"前端静态资源目录: {FRONTEND_DIST}")
+    elif should_log_startup:
+        logger.warning(f"未找到前端构建目录（{FRONTEND_DIST}），仅提供 API 服务")
+
     if should_log_startup:
         logger.info("MiroFish Backend 启动完成")
     

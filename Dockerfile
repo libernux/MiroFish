@@ -1,8 +1,10 @@
 FROM python:3.11
 
-# 安装 Node.js （满足 >=18）及必要工具
+# 安装 Node.js 20（Vite 7 需要 Node >=20.19）及必要工具
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends nodejs npm \
+  && apt-get install -y --no-install-recommends curl ca-certificates gnupg \
+  && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+  && apt-get install -y --no-install-recommends nodejs \
   && rm -rf /var/lib/apt/lists/*
 
 # 从 uv 官方镜像复制 uv
@@ -23,7 +25,12 @@ RUN npm ci \
 # 复制项目源码
 COPY . .
 
-EXPOSE 3000 5001
+# 构建前端（axios 使用相对路径 -> 与后端同源）
+RUN cd frontend && npm run build
 
-# 同时启动前后端（开发模式）
-CMD ["npm", "run", "dev"]
+# 生产环境：由 Flask 后端同时提供 API 和前端静态资源。
+# Railway 通过 $PORT 注入端口，run.py 会优先读取它。
+ENV FLASK_HOST=0.0.0.0
+EXPOSE 5001
+
+CMD ["sh", "-c", "cd backend && uv run python run.py"]
