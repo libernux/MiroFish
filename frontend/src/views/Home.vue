@@ -126,11 +126,29 @@
         <!-- 右栏：交互控制台 -->
         <div class="right-panel">
           <div class="console-box">
+            <!-- Guia: o que o cliente precisa fornecer -->
+            <div class="intake-guide">
+              <div class="intake-guide-title">{{ $t('home.intakeGuideTitle') }}</div>
+              <div class="intake-guide-intro">{{ $t('home.intakeGuideIntro') }}</div>
+              <div class="intake-guide-item">
+                <div class="intake-guide-item-title">{{ $t('home.intakeItem1Title') }}</div>
+                <div class="intake-guide-item-desc">{{ $t('home.intakeItem1Desc') }}</div>
+              </div>
+              <div class="intake-guide-item">
+                <div class="intake-guide-item-title">{{ $t('home.intakeItem2Title') }}</div>
+                <div class="intake-guide-item-desc">{{ $t('home.intakeItem2Desc') }}</div>
+                <div class="intake-guide-example">
+                  <span class="intake-guide-example-label">{{ $t('home.intakeExampleLabel') }}</span>
+                  {{ $t('home.intakeExample') }}
+                </div>
+              </div>
+            </div>
+
             <!-- 上传区域 -->
             <div class="console-section">
               <div class="console-header">
                 <span class="console-label">{{ $t('home.realitySeed') }}</span>
-                <span class="console-meta">{{ $t('home.supportedFormats') }}</span>
+                <span class="console-meta">{{ $t('home.uploadSizeHint') }}</span>
               </div>
               
               <div 
@@ -697,6 +715,68 @@ const startSimulation = () => {
 .console-box {
   border: 1px solid #CCC; /* 外部实线 */
   padding: 8px; /* 内边距形成双重边框感 */
+}
+
+.intake-guide {
+  padding: 18px 20px;
+  background: var(--gray-light);
+  border: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+
+.intake-guide-title {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+
+.intake-guide-intro {
+  font-size: 0.8rem;
+  color: var(--gray-text);
+  margin-bottom: 14px;
+}
+
+.intake-guide-item {
+  margin-top: 12px;
+}
+
+.intake-guide-item-title {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--black);
+  margin-bottom: 3px;
+}
+
+.intake-guide-item-desc {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--gray-text);
+}
+
+.intake-guide-example {
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #444;
+  font-style: italic;
+}
+
+.intake-guide-example-label {
+  display: inline-block;
+  margin-right: 6px;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--orange);
 }
 
 .console-section {

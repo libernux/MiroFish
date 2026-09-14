@@ -66,16 +66,31 @@
     "orBrowse": "ou clique para procurar arquivos",
     "inputParams": "Parâmetros de Entrada",
     "simulationPrompt": ">_ 02 / Prompt de Simulação",
-    "promptPlaceholder": "// Descreva seu requisito de simulação ou previsão em linguagem natural",
+    "promptPlaceholder": "// ex.: Como os clientes vão reagir a um aumento de 15% no preço no próximo mês?",
     "engineBadge": "Motor: Corpdata Predict-V1.0",
     "startEngine": "Iniciar Motor",
-    "initializing": "Inicializando..."
+    "initializing": "Inicializando...",
+    "intakeGuideTitle": "O que você precisa fornecer",
+    "intakeGuideIntro": "Dois insumos iniciam uma simulação:",
+    "intakeItem1Title": "1. Documentos de origem (a semente de realidade)",
+    "intakeItem1Desc": "O material sobre o seu cenário — um relatório, briefing, notícia, notas de dados ou contexto de fundo. Envie um ou mais arquivos. Quanto mais específico e factual, mais precisa a previsão.",
+    "intakeItem2Title": "2. Sua pergunta de previsão",
+    "intakeItem2Desc": "Em uma ou duas frases, descreva o que você quer prever — a decisão, evento ou reação que está testando.",
+    "intakeExampleLabel": "Exemplo",
+    "intakeExample": "Como nossos clientes vão reagir a um aumento de 15% no preço anunciado no próximo mês?",
+    "uploadSizeHint": "PDF · Markdown · TXT — até 50 MB no total"
   },
   "main": {
     "layoutGraph": "Grafo",
     "layoutSplit": "Dividido",
     "layoutWorkbench": "Bancada",
-    "stepNames": ["Construção do Grafo", "Configuração do Ambiente", "Executar Simulação", "Geração de Relatório", "Interação Profunda"]
+    "stepNames": [
+      "Construção do Grafo",
+      "Configuração do Ambiente",
+      "Executar Simulação",
+      "Geração de Relatório",
+      "Interação Profunda"
+    ]
   },
   "step1": {
     "ontologyGeneration": "Geração de Ontologia",

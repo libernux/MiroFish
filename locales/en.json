@@ -66,16 +66,31 @@
     "orBrowse": "or click to browse files",
     "inputParams": "Input Parameters",
     "simulationPrompt": ">_ 02 / Simulation Prompt",
-    "promptPlaceholder": "// Describe your simulation or prediction requirement in natural language",
+    "promptPlaceholder": "// e.g. How will customers react to a 15% price increase announced next month?",
     "engineBadge": "Engine: Corpdata Predict-V1.0",
     "startEngine": "Start Engine",
-    "initializing": "Initializing..."
+    "initializing": "Initializing...",
+    "intakeGuideTitle": "What you need to provide",
+    "intakeGuideIntro": "Two inputs start a simulation:",
+    "intakeItem1Title": "1. Source documents (the reality seed)",
+    "intakeItem1Desc": "The material about your scenario — a report, briefing, news article, dataset notes, or background context. Upload one or more files. The more specific and factual, the sharper the prediction.",
+    "intakeItem2Title": "2. Your prediction question",
+    "intakeItem2Desc": "In one or two sentences, describe what you want to forecast — the decision, event, or reaction you are testing.",
+    "intakeExampleLabel": "Example",
+    "intakeExample": "How will our customers react to a 15% price increase announced next month?",
+    "uploadSizeHint": "PDF · Markdown · TXT — up to 50 MB total"
   },
   "main": {
     "layoutGraph": "Graph",
     "layoutSplit": "Split",
     "layoutWorkbench": "Workbench",
-    "stepNames": ["Graph Build", "Env Setup", "Run Simulation", "Report Generation", "Deep Interaction"]
+    "stepNames": [
+      "Graph Build",
+      "Env Setup",
+      "Run Simulation",
+      "Report Generation",
+      "Deep Interaction"
+    ]
   },
   "step1": {
     "ontologyGeneration": "Ontology Generation",
