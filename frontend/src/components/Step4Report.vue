@@ -3188,12 +3188,12 @@ watch(() => props.reportId, (newId) => {
 
 /* Tool Colors - Orange (Quick Search) */
 .tool-badge.tool-orange {
-  background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
   border-color: #FDBA74;
   color: #C2410C;
 }
 .tool-badge.tool-orange .tool-icon {
-  stroke: #EA580C;
+  stroke: #1D4ED8;
 }
 
 /* Tool Colors - Cyan (Graph Stats) */
@@ -4839,7 +4839,7 @@ watch(() => props.reportId, (newId) => {
 
 :deep(.quicksearch-header) {
   padding: 12px 16px;
-  background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
   border-radius: 8px 8px 0 0;
   border: 1px solid #FDBA74;
   border-bottom: none;
@@ -4874,7 +4874,7 @@ watch(() => props.reportId, (newId) => {
 :deep(.quicksearch-header .stat-value) {
   font-family: 'JetBrains Mono', monospace;
   font-weight: 700;
-  color: #EA580C;
+  color: #1D4ED8;
 }
 
 :deep(.quicksearch-header .stat-label) {
@@ -4934,7 +4934,7 @@ watch(() => props.reportId, (newId) => {
 
 :deep(.quicksearch-tab.active) {
   background: #FFFFFF;
-  color: #EA580C;
+  color: #1D4ED8;
   border-color: #FDBA74;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
@@ -5063,7 +5063,7 @@ watch(() => props.reportId, (newId) => {
 
 :deep(.quick-search-display .edge-label) {
   padding: 2px 6px;
-  background: #FFEDD5;
+  background: #DBEAFE;
   border-radius: 4px;
   font-size: 10px;
   font-weight: 500;
@@ -5096,8 +5096,8 @@ watch(() => props.reportId, (newId) => {
 
 :deep(.quick-search-display .node-type) {
   font-size: 10px;
-  color: #EA580C;
-  background: #FFEDD5;
+  color: #1D4ED8;
+  background: #DBEAFE;
   padding: 2px 6px;
   border-radius: 4px;
 }

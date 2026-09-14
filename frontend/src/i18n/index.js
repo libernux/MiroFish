@@ -14,12 +14,15 @@ for (const path in localeFiles) {
   }
 }
 
-const savedLocale = localStorage.getItem('locale') || 'zh'
+// Only keep a previously saved locale if it is still available; otherwise
+// fall back to English (the sole supported UI language).
+const rawSavedLocale = localStorage.getItem('locale')
+const savedLocale = messages[rawSavedLocale] ? rawSavedLocale : 'en'
 
 const i18n = createI18n({
   legacy: false,
   locale: savedLocale,
-  fallbackLocale: 'zh',
+  fallbackLocale: 'en',
   messages
 })
 

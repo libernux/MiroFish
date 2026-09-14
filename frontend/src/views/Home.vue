@@ -2,12 +2,9 @@
   <div class="home-container">
     <!-- 顶部导航栏 -->
     <nav class="navbar">
-      <div class="nav-brand">MIROFISH</div>
+      <div class="nav-brand">CORPDATA <span class="nav-brand-accent">PREDICT</span></div>
       <div class="nav-links">
         <LanguageSwitcher />
-        <a href="https://github.com/666ghj/MiroFish" target="_blank" class="github-link">
-          {{ $t('nav.visitGithub') }} <span class="arrow">↗</span>
-        </a>
       </div>
     </nav>
 
@@ -44,7 +41,10 @@
         <div class="hero-right">
           <!-- Logo 区域 -->
           <div class="logo-container">
-            <img src="../assets/logo/MiroFish_logo_left.jpeg" alt="MiroFish Logo" class="hero-logo" />
+            <div class="text-logo" aria-label="Corpdata Predict">
+              <span class="text-logo-main">CORPDATA</span>
+              <span class="text-logo-sub">PREDICT</span>
+            </div>
           </div>
           
           <button class="scroll-down-btn" @click="scrollToBottom">
@@ -316,7 +316,7 @@ const startSimulation = () => {
 :root {
   --black: #000000;
   --white: #FFFFFF;
-  --orange: #FF4500;
+  --orange: #2563EB;
   --gray-light: #F5F5F5;
   --gray-text: #666666;
   --border: #E5E5E5;
@@ -352,6 +352,10 @@ const startSimulation = () => {
   font-weight: 800;
   letter-spacing: 1px;
   font-size: 1.2rem;
+}
+
+.nav-brand-accent {
+  color: var(--orange);
 }
 
 .nav-links {
@@ -517,9 +521,27 @@ const startSimulation = () => {
   padding-right: 40px;
 }
 
-.hero-logo {
-  max-width: 500px; /* 调整logo大小 */
-  width: 100%;
+.text-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 0.9;
+  font-family: var(--font-mono);
+}
+
+.text-logo-main {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--black);
+}
+
+.text-logo-sub {
+  font-size: clamp(1.4rem, 3.6vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  padding-right: 0.05em;
+  color: var(--orange);
 }
 
 .scroll-down-btn {
